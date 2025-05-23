@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import imageData from '../../../public/image-data.json';
-import html2canvas from 'html2canvas';
 import Navbar from '@/components/Navbar';
 
 interface PolaroidImage {

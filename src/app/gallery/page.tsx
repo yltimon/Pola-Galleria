@@ -23,7 +23,7 @@ export default function PolaroidLightboxGallery() {
   const imageId = searchParams.get("imageId");
 
   // Transform JSON data to photo format
-  const [photos, setPhotos] = useState<SelectablePhoto[]>(() =>
+  const [photos] = useState<SelectablePhoto[]>(() =>
     imageData.images.map((img, index) => ({
       id: `photo-${index}`,
       src: `/images/${img.filename}`,

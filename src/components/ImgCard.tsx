@@ -2,20 +2,16 @@
 import Image from 'next/image';
 
 interface ImgCardProps {
-  id: number;
   filename: string;
   date: string;
   tags: string[];
-  location: string;
-  isFavorite: boolean;
-  onHover: boolean;
   displayMode?: 'year' | 'month' | 'day' | 'all';
   onClick?: () => void;
 }
 
 
 
-export default function ImgCard({ displayMode = 'all', id, filename, date, tags, location, isFavorite, onHover, onClick }: ImgCardProps) {
+export default function ImgCard({ displayMode = 'all', filename, date, tags, onClick }: ImgCardProps) {
 
   const [year, month, day] = date.split('-');
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
