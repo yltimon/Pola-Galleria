@@ -1,0 +1,244 @@
+{
+    "images": [
+      {
+        "id": 1,
+        "filename": "1.jpg",
+        "date": "2024-01-15",
+        "tags": ["winter", "snow"],
+        "location": "Tokyo, Japan",
+        "isFavorite": false
+      },
+      {
+        "id": 2,
+        "filename": "2.jpg",
+        "date": "2024-01-20",
+        "tags": ["urban", "night"],
+        "location": "New York, USA",
+        "isFavorite": true
+      },
+      {
+        "id": 3,
+        "filename": "3.jpg",
+        "date": "2024-02-05",
+        "tags": ["beach", "sunset"],
+        "location": "Bali, Indonesia",
+        "isFavorite": false
+      },
+      {
+        "id": 4,
+        "filename": "4.jpg",
+        "date": "2024-02-18",
+        "tags": ["mountain", "hiking"],
+        "location": "Swiss Alps",
+        "isFavorite": true
+      },
+      {
+        "id": 5,
+        "filename": "5.jpg",
+        "date": "2024-03-10",
+        "tags": ["spring", "flowers"],
+        "location": "Amsterdam, Netherlands",
+        "isFavorite": false
+      },
+      {
+        "id": 6,
+        "filename": "6.jpg",
+        "date": "2024-03-22",
+        "tags": ["urban", "architecture"],
+        "location": "Berlin, Germany",
+        "isFavorite": false
+      },
+      {
+        "id": 7,
+        "filename": "7.jpg",
+        "date": "2024-04-03",
+        "tags": ["spring", "park"],
+        "location": "Paris, France",
+        "isFavorite": true
+      },
+      {
+        "id": 8,
+        "filename": "8.jpg",
+        "date": "2024-04-15",
+        "tags": ["desert", "adventure"],
+        "location": "Sahara Desert",
+        "isFavorite": false
+      },
+      {
+        "id": 9,
+        "filename": "9.jpg",
+        "date": "2024-05-01",
+        "tags": ["festival", "culture"],
+        "location": "Rio de Janeiro, Brazil",
+        "isFavorite": false
+      },
+      {
+        "id": 10,
+        "filename": "10.jpg",
+        "date": "2024-05-12",
+        "tags": ["ocean", "boats"],
+        "location": "Santorini, Greece",
+        "isFavorite": true
+      },
+      {
+        "id": 11,
+        "filename": "11.jpg",
+        "date": "2023-06-05",
+        "tags": ["summer", "lake"],
+        "location": "Lake Como, Italy",
+        "isFavorite": false
+      },
+      {
+        "id": 12,
+        "filename": "12.jpg",
+        "date": "2023-06-20",
+        "tags": ["wildlife", "safari"],
+        "location": "Serengeti, Tanzania",
+        "isFavorite": true
+      },
+      {
+        "id": 13,
+        "filename": "13.jpg",
+        "date": "2023-07-07",
+        "tags": ["beach", "summer"],
+        "location": "Maldives",
+        "isFavorite": false
+      },
+      {
+        "id": 14,
+        "filename": "14.jpg",
+        "date": "2023-07-19",
+        "tags": ["city", "skyline"],
+        "location": "Hong Kong",
+        "isFavorite": false
+      },
+      {
+        "id": 15,
+        "filename": "15.jpg",
+        "date": "2023-08-02",
+        "tags": ["festival", "music"],
+        "location": "Burning Man, USA",
+        "isFavorite": true
+      },
+      {
+        "id": 16,
+        "filename": "16.jpg",
+        "date": "2023-08-25",
+        "tags": ["mountain", "sunrise"],
+        "location": "Machu Picchu, Peru",
+        "isFavorite": false
+      },
+      {
+        "id": 17,
+        "filename": "17.jpg",
+        "date": "2023-09-10",
+        "tags": ["autumn", "forest"],
+        "location": "Kyoto, Japan",
+        "isFavorite": false
+      },
+      {
+        "id": 18,
+        "filename": "18.jpg",
+        "date": "2023-09-28",
+        "tags": ["vineyard", "wine"],
+        "location": "Tuscany, Italy",
+        "isFavorite": true
+      },
+      {
+        "id": 19,
+        "filename": "19.jpg",
+        "date": "2023-10-15",
+        "tags": ["halloween", "pumpkins"],
+        "location": "Salem, USA",
+        "isFavorite": false
+      },
+      {
+        "id": 20,
+        "filename": "20.jpg",
+        "date": "2023-10-30",
+        "tags": ["desert", "canyon"],
+        "location": "Grand Canyon, USA",
+        "isFavorite": false
+      },
+      {
+        "id": 21,
+        "filename": "21.jpg",
+        "date": "2023-11-12",
+        "tags": ["autumn", "bridge"],
+        "location": "Prague, Czech Republic",
+        "isFavorite": true
+      },
+      {
+        "id": 22,
+        "filename": "22.jpg",
+        "date": "2023-11-25",
+        "tags": ["thanksgiving", "family"],
+        "location": "Toronto, Canada",
+        "isFavorite": false
+      },
+      {
+        "id": 23,
+        "filename": "23.jpg",
+        "date": "2023-12-10",
+        "tags": ["winter", "christmas"],
+        "location": "Rovaniemi, Finland",
+        "isFavorite": false
+      },
+      {
+        "id": 24,
+        "filename": "24.jpg",
+        "date": "2023-12-24",
+        "tags": ["holidays", "lights"],
+        "location": "Tokyo, Japan",
+        "isFavorite": true
+      },
+      {
+        "id": 25,
+        "filename": "25.jpg",
+        "date": "2022-01-05",
+        "tags": ["newyear", "fireworks"],
+        "location": "Sydney, Australia",
+        "isFavorite": false
+      },
+      {
+        "id": 26,
+        "filename": "26.jpg",
+        "date": "2022-01-20",
+        "tags": ["winter", "skiing"],
+        "location": "Aspen, USA",
+        "isFavorite": false
+      },
+      {
+        "id": 27,
+        "filename": "27.jpg",
+        "date": "2022-02-14",
+        "tags": ["valentine", "romance"],
+        "location": "Venice, Italy",
+        "isFavorite": true
+      },
+      {
+        "id": 28,
+        "filename": "28.jpg",
+        "date": "2022-02-28",
+        "tags": ["winter", "northernlights"],
+        "location": "Tromsø, Norway",
+        "isFavorite": false
+      },
+      {
+        "id": 29,
+        "filename": "29.jpg",
+        "date": "2022-03-15",
+        "tags": ["spring", "cherryblossoms"],
+        "location": "Washington DC, USA",
+        "isFavorite": false
+      },
+      {
+        "id": 30,
+        "filename": "30.jpg",
+        "date": "2022-03-30",
+        "tags": ["spring", "garden"],
+        "location": "Keukenhof, Netherlands",
+        "isFavorite": true
+      }
+    ]
+  }

@@ -1,103 +1,153 @@
-import Image from "next/image";
+"use client";
+import Navbar from '@/components/Navbar';
+import ImgCard from '@/components/ImgCard';
+import TaskbarBtn from '@/components/TaskbarBtn';
+import imageData from '../../public/image-data.json';
+import { useState } from 'react';
+import { useRouter} from 'next/navigation';
 
-export default function Home() {
+export default function VisionproGallery() {
+  const router = useRouter();
+  const buttons = ["Years", "Months", "Days", "All Photos"];
+  const [activeFilter, setActiveFilter] = useState("All Photos");
+  const [selectedYear, setSelectedYear] = useState<string>("2024");
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+
+    // Process image data
+    const images = imageData.images.sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+
+  // Get unique years and months from the image data
+  const years = [...new Set(images.map(img => img.date.split('-')[0]))].sort((a, b) => b.localeCompare(a));
+
+  const months = [
+    { value: "01", label: "Jan" },
+    { value: "02", label: "Feb" },
+    { value: "03", label: "Mar" },
+    { value: "04", label: "Apr" },
+    { value: "05", label: "May" },
+    { value: "06", label: "Jun" },
+    { value: "07", label: "Jul" },
+    { value: "08", label: "Aug" },
+    { value: "09", label: "Sep" },
+    { value: "10", label: "Oct" },
+    { value: "11", label: "Nov" },
+    { value: "12", label: "Dec" },
+  ];
+
+
+  // Filter logic based on active filter
+  const getFilteredImages = () => {
+    switch (activeFilter) {
+      case "Years":
+        return years.map(year => {
+          const yearImages = images.filter(img => img.date.startsWith(year));
+          return yearImages[0] || null; // Get first image for each year
+        }).filter(Boolean);
+      case "Months":
+        return months.map(month => {
+          const monthImages = images.filter(img => 
+            img.date.startsWith(`${selectedYear}-${month.value}`)
+          );
+          return monthImages[0] || null; // Get first image for each month
+        }).filter(Boolean);
+
+      case "Days":
+        return images.slice(0, 15); // Get first 15 images for the "Days" filter
+
+      default:
+        return images.slice(0, 18); // Default to first 18 images
+    }
+  };
+  // Group images into rows
+  const groupIntoRows = (items: any[], itemsPerRow: number) => {;
+  const rows = [];
+  for (let i = 0; i < items.length; i += itemsPerRow) {
+    rows.push(items.slice(i, i + itemsPerRow));
+  }
+  return rows;
+};
+
+// Get filtered images based on the active filter
+const getRows = () => {
+  const filtered = getFilteredImages();
+  switch (activeFilter) {
+    case "Years": return groupIntoRows(filtered, 3);
+    case "Months": return groupIntoRows(filtered, 3);
+    case "Days": return groupIntoRows(filtered, 4);
+    default: return groupIntoRows(filtered, 4);
+  }
+};
+  const rows = getRows();
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <Navbar />
+      <main className="bg-[#ff00001a] flex justify-center w-full">
+        <section className="relative w-[1920px] h-[1080px] bg-[url('/images/hero.jpg')] bg-cover bg-center">
+          <div className="absolute top-[60px] left-1/2 transform -translate-x-1/2 w-[1177px] h-[800px]">
+            <div className="relative h-full">
+              {/* Photo Gallery */}
+              <section className="flex flex-col items-start gap-5 p-[60px] absolute top-0 left-0 w-full h-full bg-glass-bg rounded-[40px] overflow-hidden border-none backdrop-blur-2xl backdrop-brightness-100 shadow-glass-blur">
+                
+                {/* Year selector for Months view */}
+                {activeFilter === "Months" && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <select 
+                      value={selectedYear}
+                      onChange={(e) => setSelectedYear(e.target.value)}
+                      className="bg-white/80 rounded-full px-4 py-2 text-sm"
+                    >
+                      {years.map(year => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                  </div>
+                )}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+                {/* Dynamic Rows */}
+                {rows.map((row, rowIndex) => (
+                  <div key={rowIndex} className="flex w-full h-[204px] items-center justify-center gap-5">
+                    {row.map(img => (
+                      <ImgCard 
+                        key={img.id}
+                        {...img}
+                        onHover={hoveredCard === img.id}
+                        onMouseEnter={() => setHoveredCard(img.id)}
+                        onMouseLeave={() => setHoveredCard(null)}
+                        displayMode={ 
+                          activeFilter === "Years" ? "year" :
+                          activeFilter === "Months" ? "month" :
+                          activeFilter === "Days" ? "day" : "all"
+                        }
+                        onClick = {() => router.push(`/gallery?imageId=${img.id}`)}
+                      />
+                    ))}
+                  </div>
+                ))}
+
+              </section>
+
+              {/* Buttons */}
+              <nav className="inline-flex items-start gap-4 p-3 absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-glass-bg rounded-[40px] overflow-hidden border-none backdrop-blur-2xl backdrop-brightness-100 shadow-glass-blur">
+                {buttons.map(btn => (
+                  <TaskbarBtn
+                    key={btn}
+                    text={btn}
+                    className="!flex-[0_0_auto]"
+                    isActive={activeFilter === btn}
+                    onClick={() => {
+                      setActiveFilter(btn)
+                      if (btn === "Months") setSelectedYear(new Date().getFullYear().toString());
+                    }}
+                  />
+                ))}
+              </nav>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }

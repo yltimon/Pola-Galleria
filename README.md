@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gallery App Requirements
 
-## Getting Started
+## 1. Introduction
+Build a gallery app that organizes images into customizable grids and exports them as shareable images.
 
-First, run the development server:
+## 2. Features
+- **Must-Have**
+  - Random image grid generator.
+  - Polaroid mode (white borders + captions).
+  - PNG/JPEG export.
+- **Nice-to-Have**
+  - AI auto-captions.
+  - Social sharing.
 
+## 3. Technical Specs
+- Frontend: Next.js + Tailwind.
+- Libraries: `html-to-image`, `react-dnd`, `react-photo-album`.
+- Data: Local demo images (Unsplash).
+
+## 4. Success Metrics
+- Judges can demo core features in <2 mins.
+- Exported images retain Polaroid styling.
+
+# Flashback Gallery  
+*A smart gallery app that turns your photos into printable Polaroid journals.*  
+
+## 🎥 Demo Video  
+[![Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://youtu.be/YOUR_VIDEO_ID)  
+
+## ✨ Why Use This?   
+- **Export Anywhere:** Save grids as PNGs for social media/print.  
+- **No Login Needed:** 100% private (runs in your browser).  
+
+## 🛠️ How It Works  
+1. **Random Grid:** Click "Shuffle" to auto-arrange photos.  
+2. **Polaroid Mode:** Add white borders/captions for a journal look.  
+3. **Export:** Download as high-res PNG with one click.  
+
+## Time-Based Filtering
+- **Years**: View photos from 2022-2024
+- **Months**: See seasonal changes (e.g., cherry blossoms in March)
+- **Days**: Relive specific moments
+
+## 🚀 Installation  
 ```bash
+git clone https://github.com/yltimon/pola-galleria.git
+cd pola-galleria
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
