@@ -37,14 +37,9 @@ export default function PolaroidGenerator() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState('');
 
-  // Handle grid changes
-  const updateGrid = (type: 'rows' | 'cols' | 'spacing' | 'width', value: number) => {
-    setGridConfig(prev => ({
-      ...prev,
-      [type]: Math.max(1, value) // Ensure minimum of 1
-    }));
 
-    // Add/remove images when grid size changes
+  // Add/remove images when grid size changes
+  const updateGridImages = (type: 'rows' | 'cols', value: number) => {
     if (type === 'rows' || type === 'cols') {
       const newSize = (type === 'rows' ? value : gridConfig.rows) * 
                      (type === 'cols' ? value : gridConfig.cols);

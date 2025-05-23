@@ -60,8 +60,10 @@ export default function VisionproGallery() {
         return images.slice(0, 18); // Default to first 18 images
     }
   };
-  // Group images into rows
-  const groupIntoRows = (items: any[], itemsPerRow: number) => {;
+
+
+// Group images into rows
+const groupIntoRows = (items: any[], itemsPerRow: number) => {
   const rows = [];
   for (let i = 0; i < items.length; i += itemsPerRow) {
     rows.push(items.slice(i, i + itemsPerRow));
@@ -86,7 +88,7 @@ const getRows = () => {
       <Navbar />
       <main className="bg-[#ff00001a] flex justify-center w-full">
         <section className="relative w-[1920px] h-[1080px] bg-[url('/images/hero.jpg')] bg-cover bg-center">
-          <div className="absolute top-[60px] left-1/2 transform -translate-x-1/2 w-[1177px] h-[800px]">
+          <div className="absolute 0px] left-1/2 transform -translate-x-1/2 w-[1177px] h-[800px]">
             <div className="relative h-full">
               {/* Photo Gallery */}
               <section className="flex flex-col items-start gap-5 p-[60px] absolute top-0 left-0 w-full h-full bg-glass-bg rounded-[40px] overflow-hidden border-none backdrop-blur-2xl backdrop-brightness-100 shadow-glass-blur">
