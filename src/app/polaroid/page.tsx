@@ -38,26 +38,6 @@ export default function PolaroidGenerator() {
   const [editText, setEditText] = useState('');
 
 
-  // Add/remove images when grid size changes
-  const updateGridImages = (type: 'rows' | 'cols', value: number) => {
-    if (type === 'rows' || type === 'cols') {
-      const newSize = (type === 'rows' ? value : gridConfig.rows) * 
-                     (type === 'cols' ? value : gridConfig.cols);
-      setImages(prev => {
-        if (newSize > prev.length) {
-          return [
-            ...prev,
-            ...Array.from({ length: newSize - prev.length }, (_, i) => ({
-              id: `polaroid-${prev.length + i}`,
-              url: `/images/default-${(i % 4) + 1}.jpg`,
-              caption: `Memory ${prev.length + i + 1}`,
-            }))
-          ];
-        }
-        return prev.slice(0, newSize);
-      });
-    }
-  };
 
   // Handle caption editing
   const startEditing = (id: string, text: string) => {
@@ -255,7 +235,7 @@ export default function PolaroidGenerator() {
                         type="text"
                         value={editText}
                         onChange={(e) => setEditText(e.target.value)}
-                        className="flex-1 p-1 border rounded text-center font-handwritten text-lg"
+                        className="flex-1 p-1 border rounded text-center font-handwritten text-lg text-gray-800 bg-white"
                         autoFocus
                       />
                       <button
